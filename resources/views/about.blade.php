@@ -4,6 +4,11 @@
         @include('header')
     </div>
 </div>
+
+<!-- MTU map -->
+<div class="mtu-map">
+    <a href="{{ asset('mtu-map.png') }}" target="_blank"></a>
+</div>
 <div class="container">
     <div class="history-background">
         <h3>Historical Background</h3>
@@ -12,6 +17,7 @@
 </div>
 <div class="mission_vission is-hidden-mobile">
     <div class="logo">
+        <i class="fa fa-university" aria-hidden="true"></i>
     </div>
     <div class="rect" id="mission">
         <h4 style="text-align: center;">Mission</h4>
@@ -87,12 +93,21 @@
     </div>
 </div>
 <div class="container">
-    <div class="current_principle column">
-        <h3>Current Head of University</h3>
-        <img src="{{asset('mgfreeman.jpg')}}" width="200" height="200" />
-        <h4 style="font-style: italic;">Morgan Freeman</h4>
-        <p>(5.12.1996 - now )</p>
-    </div>
+    <!-- Updated part dont delete -->
+    <div class="current_principle">
+        <div class="columns">
+            <div class="column is-5 img_parent">
+                    <div class="img_child">
+                    </div>
+                
+            </div>
+            <div class="column">
+                <h3>Current Head of University</h3>
+                <h4 style="font-style: italic;">Morgan Freeman</h4>
+                <p>(5.12.1996 - now )</p>
+            </div>
+        </div>
+</div>
     <div class="columns rectors">
         <div class="column">
             <h4 class="head_class">Temporary Heads</h4>
@@ -104,7 +119,8 @@
         <div class="column">
             <h4 class="head_class">Rectors</h4>
             <div class="rector_card">
-                <p class="name">U Khin Maung</p>
+                <p class="name">U Khin Maung</p> 
+                
                 <p class="period">6.1991 - 10.1998</p>
             </div>
             <div class="rector_card">
@@ -133,12 +149,11 @@
         </div>
     </div>
 </div>
-
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.042116898256!2d96.18896391437578!3d21.971346585495446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6e538bf6418b%3A0x9c9718b6ec4e04f8!2sMandalay+Technological+University!5e0!3m2!1sen!2smm!4v1500798656199" class="column is-12" height="450" frameborder="0" style="border:0; padding: 0; width: 100%" allowfullscreen></iframe>
-@endsection('content')
- @section('style')
+@endsection('content') @section('style')
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <style type="text/css">
-.container {
+    .container {
     margin-top: 3rem;
 }
 
@@ -159,9 +174,10 @@ h3 {
     color: #757575;
 }
 
-span {
-    background-color: #212121;
-    color: #ffffff;
+.history-background span {
+    background-color: #e0e0e0;
+    color: #616161;
+    padding: 0em 0.5em;
 }
 
 .rect {
@@ -180,10 +196,21 @@ span {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /*#mission:hover,#vision:hover{
-		background-color: #757575;
-		color: white;
-	}*/
+        background-color: #757575;
+        color: white;
+    }*/
 
 #vision {
     float: left;
@@ -193,12 +220,22 @@ span {
 .logo {
     width: 50px;
     height: 50px;
-    border-radius: 25px;
-    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 3;
     background-color: #757575;
     position: absolute;
     left: 48%;
     margin-top: -0.8rem;
+}
+
+.logo i {
+    font-size: 2em;
+
+    color: white;
+    z-index: 4;
 }
 
 .mission_vission {
@@ -212,31 +249,37 @@ span {
 
 
 
+
+.img_parent .img_child {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    background: url('{{ asset('mgfreeman.jpg') }}');
+    background-size: cover;
+    background-position: center center;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    position: relative;
+}
+
+
+
+
+
+
+
+
 /*table{
-		margin: auto;
-		margin-bottom: 50px;
-		width: 80%;
-	}
-	td{
-		padding: 1rem 3rem;
-		border-bottom: 1px solid #757575;
-	}*/
-
-.current_principle img {
-    border-radius: 50%;
-    padding: 20px;
-    display: block;
-    margin: auto;
-}
-
-.current_principle {
-    border-radius: 3px;
-    background-color: #efefef;
-    text-align: center;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 3rem;
-}
+        margin: auto;
+        margin-bottom: 50px;
+        width: 80%;
+    }
+    td{
+        padding: 1rem 3rem;
+        border-bottom: 1px solid #757575;
+    }*/
 
 .rect_mobile {
     width: 100%;
@@ -253,30 +296,35 @@ span {
 
 
 .rectors div.rector_card p {
-	display: inline-block;
-	text-align: center;
+    display: inline-block;
+    text-align: center;
     background-color: #424242;
     color: #eee;
     margin: 0 !important;
-    /*width: 35%;*/
+    /*/*width: 35%;*/
 }
-.rectors div.rector_card p.name {
-	padding: 6px 10px;
+.mtu-map{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))
+    ,url('{{ asset('mtu-map.png') }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 400px;
+    display: block;
+    margin: 0 auto;
+    transition: all ease 0.5s;
+    overflow: hidden;
 }
-.rectors div.rector_card p.period{
-	margin-left: 5px;
-	padding: 6px 10px;
-	background-color: white;
-	color: #424242;
-	 border: 1px solid black;
+.mtu-map a{
+    width: 100%;
+    height: 100%;
+    display: block;
+
+}
+.mtu-map:hover{
 }
 
-.rectors .rector_card{
-	margin: 5px 0;
-	justify-content: center;
-	padding: 0;
-	display: flex;
-	flex-direction: row;
-}
+
 </style>
 @endsection

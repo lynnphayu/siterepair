@@ -11,7 +11,7 @@ class Photos extends Model
     //table_name;
     protected $table="tbl_posts_photos";
     //fillable fields
-    protected $fillable=['img_dir','name','post_id'];
+    protected $fillable=['img_dir','name','post_id','forshow'];
 
     public function posts()
     {

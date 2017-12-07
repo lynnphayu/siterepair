@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <main id='panel'>
         @yield('content')
     </main>
@@ -85,11 +86,14 @@
     });
 
     // Toggle button
-    document.querySelector('.toggle-button').addEventListener('click', function() {
-        slideout.toggle();
-    });
-    </script>
-    @yield("script")
+    var toggle_btn = document.getElementById('toggle-button');
+    if (toggle_btn) {
+        document.querySelector('.toggle-button').addEventListener('click', function () {
+            slideout.toggle();
+        });
+    }
+</script>
+@yield("script")
 </body>
 
 </html>

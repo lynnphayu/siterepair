@@ -1,0 +1,22 @@
+.menu ul {
+	list-style: none;
+}
+.container {
+	display: block;
+	margin: 0 auto;
+}
+
+.content{
+	margin: 2em;
+}
+form .select{
+	margin: 2em 0;
+}
+.content h3{
+	margin: 0;
+}
+p.is-success{
+	background-color: #9CCC65;
+	color: whitesmoke;
+	padding: 0.4em 1em;
+}

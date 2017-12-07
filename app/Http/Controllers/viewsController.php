@@ -14,7 +14,6 @@ class viewsController extends Controller
         // app()->bind('postsController',postsController::class);
 
         $this->dataControllerPosts =app()->make('postsController');
-        $this->dataControllerPhotos = app()->make('postsPhotosController');
     }
 
     public function index () {
@@ -23,9 +22,8 @@ class viewsController extends Controller
         $posts = $data->getData()->posts;
         $photos = $data->getData()->photos;
         $announcements = $data->getData()->announcements;
-        return view('demo.index',['posts'=> $posts ,'photos' => $photos,'announcements' => $announcements]);
-            // return response()->json(['posts'=> $posts ,'photos' => $photos,'announcements' => $announcements],200);
-
+//        return view('demo.index',['posts'=> $posts ,'photos' => $photos,'announcements' => $announcements]);
+        return view('posts.index',['posts' => $posts]);
     }
     public function details ($id) {
 //        $controller = new postsController;
@@ -44,24 +42,11 @@ class viewsController extends Controller
  		return view('posts.edit',['post' => $post]);
  	}
 
-
-
- 	public function photosIndex(){
-        // $controller = new postsPhotoController;
-
- 	    return view('photos.index');
-    }
-    public function photosAdd(){
- 	    return view('photos.add');
+    public function createDep(){
+        return view('admin.createDep');
     }
 
-    public function photosDetails(){
-        return view('photos.details');
-    }
-
-    public function photosEdit(){
-        return view('photos.edit');
-    }
+ 	
 
 
  	

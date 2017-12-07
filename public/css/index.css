@@ -1,6 +1,7 @@
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
+
 ul {
     list-style: none;
 }
@@ -14,32 +15,39 @@ ul {
     background-size: cover;
     min-height: 720px;
 }
-#landing_civil .detail_button{
+
+#landing_civil .detail_button {
     border: 2px solid #eee;
 }
-#landing_civil>.detail_button:hover{
+
+#landing_civil>.detail_button:hover {
     color: #eee !important;
 }
 
 
-.columns{
+.columns {
     margin: 0 !important;
     padding: 0 !important;
 }
 
+
 /*title and header*/
-.header>div{
+
+.header>div {
     display: flex;
     align-items: center;
     float: left;
 }
-#header_logo{
+
+#header_logo {
     margin-left: 1%;
     margin-right: 1%;
 }
-#header_logo>img{
+
+#header_logo>img {
     width: 60px;
 }
+
 .title {
     margin-right: 0 !important;
     display: block;
@@ -108,10 +116,10 @@ li>a {
     /* height: 40px; */
 }
 
+
 /*title and header*/
 
-
-.detail_button{
+.detail_button {
     position: absolute;
     margin: 0 auto;
     top: 80vh;
@@ -120,15 +128,16 @@ li>a {
     cursor: pointer;
 }
 
-.detail_button:hover{
+.detail_button:hover {
     background-color: #333;
     color: white;
 }
 
-.secondary{
+.secondary {
     font-size: 13px;
     color: #747474;
 }
+
 
 
 
@@ -176,12 +185,8 @@ li>a {
 
 
 
+
 /*slideout style*/
-
-
-
-
-
 
 
 /*footer*/
@@ -195,7 +200,6 @@ li>a {
     justify-content: center;
     align-items: center;
 }
-
 .sub_input>div:first-child{
     background-color: #eee;
     padding: 0 13px;
@@ -258,63 +262,126 @@ li>a {
 }
 /*footer*/
 
+
 /* departments */
 
-.brief_history{
+.brief_history {
     text-align: center;
-}    
+}
 
-.mission_vision .columns{
+.mission_vision .columns {
     margin: 0 auto !important;
 }
-.mission_vision span{
+
+.mission_vision span {
     float: left;
     font-size: 90px;
     line-height: 70px;
 }
-.mission_vision span.float_right{
+
+.mission_vision span.float_right {
     float: right;
 }
-.mission_vision h4{
+
+.mission_vision h4 {
     margin: 0;
 }
-.mission_vision div.align_right{
+
+.mission_vision div.align_right {
     background: #424242;
-    color : #F5F5F5;
+    color: #F5F5F5;
 }
-.mission_vision h4.align_right{
+
+.mission_vision h4.align_right {
     margin: 0;
     direction: rtl;
     unicode-bidi: bidi-override;
 }
-.mission_vision p{
+
+.mission_vision p {
     margin-top: 0;
 }
-.mission_vision div.bg_black{
+
+.mission_vision div.bg_black {
     background: #424242;
 }
 
-.mission_vision .is-2{
+.mission_vision .is-2 {
     padding: 0 !important;
 }
-.mission_vision .content{
+
+.mission_vision .content {
     padding: 20px !important;
 }
-.mission_vision .align_right{
+
+.mission_vision .align_right {
     text-align: right;
 }
+
+
 /* .mission_vision h1{
     text-align: center;
 } */
+
+
 /* departments */
 
-.thumbnail{
+.thumbnail {
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-.secondary{
+.secondary {
     font-size: 13px;
     color: #747474;
 }
+
+
+/*About page by zln*/
+
+
+.current_principle h3 {
+    color: #eeeeee;
+    margin-left: 0; 
+    text-align: left;
+    font-weight: lighter;
+}
+
+.img_parent:hover .img_child,
+.img_parent:focus .img_child {
+    transform: scale(1.1);
+}
+ .img_child::before {
+    content: "";
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: absolute;
+  background-color: rgba(224, 224, 224, 0.75);
+}
+.current_principle .img_parent:hover .img_child:before,
+.current_principle .img_parent:focus .img_child:before {
+  display: block;
+}
+
+
+.current_principle {
+    border: 1px solid #eee;
+        width: 80%;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+.current_principle .img_parent{
+    height: 400px;
+    width: auto;
+    overflow: hidden;
+    padding: 0;
+}
+.current_principle .columns .column:last-child{
+    background-color: #757575;
+    color: #eeeeee !important;
+}
+
+
+/*End About*/
