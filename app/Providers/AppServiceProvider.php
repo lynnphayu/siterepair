@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Department;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        $dep = Department::all();
         error_reporting(E_ALL ^ E_NOTICE);
+        View::share('departments',$dep);
         
     }
 
