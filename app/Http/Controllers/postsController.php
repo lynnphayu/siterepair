@@ -110,4 +110,3 @@ class postsController extends Controller
 
 }
 
-//app()->bind('postsController',postsController::class);

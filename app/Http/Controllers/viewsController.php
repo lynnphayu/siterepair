@@ -13,16 +13,12 @@ class viewsController extends Controller
         // app()->bind('postsPhotosController',postsPhotosController::class);
         // app()->bind('postsController',postsController::class);
 
-        $this->dataControllerPosts =app()->make('postsController');
+        $this->dataControllerPosts = app()->make('postsController');
     }
 
     public function index () {
-//         $controller = App::make('postsController');
         $data = $this->dataControllerPosts->index();
         $posts = $data->getData()->posts;
-        $photos = $data->getData()->photos;
-        $announcements = $data->getData()->announcements;
-//        return view('demo.index',['posts'=> $posts ,'photos' => $photos,'announcements' => $announcements]);
         return view('posts.index',['posts' => $posts]);
     }
     public function details ($id) {

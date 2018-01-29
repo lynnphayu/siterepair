@@ -8,7 +8,6 @@
 			<li><a href="{{ route('posts.index') }}">Post list</a></li>
 			<li><a href="{{ route('announcements.add') }}">Add Anuouncement</a></li>
 			<li><a href="{{route('announcements.index') }}">Announcements</a></li>
-
 		</ul>
 	</aside>
 </div>

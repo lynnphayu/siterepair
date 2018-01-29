@@ -9,13 +9,18 @@
                 @endif
                 <form action="{{ route('admin.insertDep') }}" method="POST">
                     {{ csrf_field() }}
-                    <div class="select">
-                        @include('admin.selectDep')
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input type="text" name="name" class="input" required> @if($errors->has('name'))
+                                <p class="help is-danger">{{ $errors->first('name') }}</p>
+                            @endif
+                        </div>
                     </div>
                     <div class="field">
                         <label class="label">History</label>
                         <div class="control">
-                            <textarea name="history" class="textarea"></textarea> @if($errors->has('history'))
+                            <textarea name="history" class="textarea" required></textarea> @if($errors->has('history'))
                                 <p class="help is-danger">{{ $errors->first('history') }}</p>
                             @endif
                         </div>
@@ -23,7 +28,7 @@
                     <div class="field">
                         <label class="label">Mission</label>
                         <div class="control">
-                            <textarea name="mission" class="textarea"></textarea> @if($errors->has('mission'))
+                            <textarea name="mission" class="textarea" required></textarea> @if($errors->has('mission'))
                                 <p class="help is-danger">{{ $errors->first('mission') }}</p>
                             @endif
                         </div>
@@ -31,7 +36,7 @@
                     <div class="field">
                         <label class="label">Vision</label>
                         <div class="control">
-                            <textarea name="vision" class="textarea"></textarea>@if($errors->has('vision'))
+                            <textarea name="vision" class="textarea" required></textarea>@if($errors->has('vision'))
                                 <p class="help is-danger">{{ $errors->first('vision') }}</p>
                             @endif
                         </div>

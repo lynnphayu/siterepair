@@ -66,72 +66,36 @@
         <div class="column is-10">
             <h5>Research Facilities</h5>
             <div class="gallery">
-                <div class="columns">
-                    @foreach( $dep->research as $index )
-                        <div class="column">
-                            @if(empty($index->img_dir))
-                                <a href="{{ asset('uploads/no-image-available.png') }}"
-                                   data-caption="{{ $index->description }}">
-                                    <div class="image is-3by2">
-                                        <img src="{{ asset('uploads/no-image-available.png') }}"/>
-                                        <p class="overlay_text">{{ $index->title }}</p>
-                                    </div>
-                                </a>
-                            @else
-                                <a href="{{ asset('civil.png') }}" data-caption= {{ $index->description }}>
-                                    <div class="image is-3by2">
-                                        <img src="{{ asset('civil.png') }}"/>
-                                        <p class="overlay_text">Matrix vs deadpool</p>
-                                    </div>
-                                </a>
+                @foreach($dep->research as $index)
+                    @if ($loop->index % 3 == 0 )
+                        <div class="columns">
                             @endif
+                            <div class="column">
+                                @if(empty($index->img_dir))
+                                    <a href="{{ asset('uploads/no-image-available.png') }}"
+                                       data-caption="{{ $index->description }}">
+                                        <div class="image is-3by2">
+                                            <img src="{{ asset('uploads/no-image-available.png') }}"/>
+                                            <p class="overlay_text">{{ $index->title }}</p>
+                                        </div>
+                                    </a>
+                                @else
+                                    <a href="{{ asset('uploads/'.$index->img_dir) }}"
+                                       data-caption= {{ $index->description }}>
+                                        <div class="image is-3by2">
+                                            <img src="{{ asset('uploads/'.$index->img_dir) }}"/>
+                                            <p class="overlay_text">{{ $index->title }}</p>
+                                        </div>
+                                    </a>
+                                @endif
+                            </div>
+                            @if((++$loop->index) % 3 == 0 )
                         </div>
-                    @endforeach
-                    <div class="column">
-                        <a href="{{ asset('civil.png') }}">
-                            <div class="image is-3by2">
-                                <img src="{{ asset('civil.png') }}"/>
-                                <p class="overlay_text">Kung Fu Panda</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="{{ asset('civil.png') }}">
-                            <div class="image is-3by2">
-                                <img src="{{ asset('civil.png') }}"/>
-                                <p class="overlay_text">A Movie</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="column">
-                        <a href="{{ asset('civil.png') }}">
-                            <div class="image is-3by2">
-                                <img src="{{ asset('civil.png') }}"/>
-                                <p class="overlay_text">Matrix vs deadpool</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="{{ asset('civil.png') }}">
-                            <div class="image is-3by2">
-                                <img src="{{ asset('civil.png') }}"/>
-                                <p class="overlay_text">Kung Fu Panda</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="{{ asset('civil.png') }}">
-                            <div class="image is-3by2">
-                                <img src="{{ asset('civil.png') }}"/>
-                                <p class="overlay_text">A Movie</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
         </div>
+    </div>
     </div>
     <div class="courses">
         <div class="column is-8">
@@ -162,50 +126,46 @@
                 </div>
                 <div class="column">
                     <div class="course_duration">
-                        <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                        <h4>BE 2<sup>nd</sup> year</br>36 weeks</h4>
                         <div class="course_detail">
                             <h5>Semester I</h5>
                             <ul>
-                                <li>M11001 Myanmar I</li>
-                                <li>E11001 English I</li>
-                                <li>EM11001 Applied Mathematics I</li>
-                                <li>E.Ch11001Engineering Chemistry I</li>
-                                <li>E.Ph11001 Engineering Physics I</li>
-                                <li>ME11011 Basic Engineering Drawing I</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'first' && $index->course_year == 'second')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                             <h5>Semester II</h5>
                             <ul>
-                                <li>M11001 Myanmar II</li>
-                                <li>E11001 English II</li>
-                                <li>EM11001 Applied Mathematics II</li>
-                                <li>E.Ch11001Engineering Chemistry II</li>
-                                <li>E.Ph11001 Engineering Physics II</li>
-                                <li>ME11011 Basic Engineering Drawing II</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'second' && $index->course_year == 'second')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="column">
                     <div class="course_duration">
-                        <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                        <h4>BE 3<sup>rd</sup> year</br>36 weeks</h4>
                         <div class="course_detail">
                             <h5>Semester I</h5>
                             <ul>
-                                <li>M11001 Myanmar I</li>
-                                <li>E11001 English I</li>
-                                <li>EM11001 Applied Mathematics I</li>
-                                <li>E.Ch11001Engineering Chemistry I</li>
-                                <li>E.Ph11001 Engineering Physics I</li>
-                                <li>ME11011 Basic Engineering Drawing I</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'first' && $index->course_year == 'third')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                             <h5>Semester II</h5>
                             <ul>
-                                <li>M11001 Myanmar II</li>
-                                <li>E11001 English II</li>
-                                <li>EM11001 Applied Mathematics II</li>
-                                <li>E.Ch11001Engineering Chemistry II</li>
-                                <li>E.Ph11001 Engineering Physics II</li>
-                                <li>ME11011 Basic Engineering Drawing II</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'second' && $index->course_year == 'third')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -214,75 +174,69 @@
             <div class="columns">
                 <div class="column">
                     <div class="course_duration">
-                        <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                        <h4>BE 4<sup>th</sup> year</br>36 weeks</h4>
                         <div class="course_detail">
                             <h5>Semester I</h5>
                             <ul>
-                                <li>M11001 Myanmar I</li>
-                                <li>E11001 English I</li>
-                                <li>EM11001 Applied Mathematics I</li>
-                                <li>E.Ch11001Engineering Chemistry I</li>
-                                <li>E.Ph11001 Engineering Physics I</li>
-                                <li>ME11011 Basic Engineering Drawing I</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'first' && $index->course_year == 'fourth')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                             <h5>Semester II</h5>
                             <ul>
-                                <li>M11001 Myanmar II</li>
-                                <li>E11001 English II</li>
-                                <li>EM11001 Applied Mathematics II</li>
-                                <li>E.Ch11001Engineering Chemistry II</li>
-                                <li>E.Ph11001 Engineering Physics II</li>
-                                <li>ME11011 Basic Engineering Drawing II</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'second' && $index->course_year == 'fourth')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="column">
                     <div class="course_duration">
-                        <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                        <h4>BE 5<sup>th</sup> year</br>36 weeks</h4>
                         <div class="course_detail">
                             <h5>Semester I</h5>
                             <ul>
-                                <li>M11001 Myanmar I</li>
-                                <li>E11001 English I</li>
-                                <li>EM11001 Applied Mathematics I</li>
-                                <li>E.Ch11001Engineering Chemistry I</li>
-                                <li>E.Ph11001 Engineering Physics I</li>
-                                <li>ME11011 Basic Engineering Drawing I</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'first' && $index->course_year == 'fifth')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                             <h5>Semester II</h5>
                             <ul>
-                                <li>M11001 Myanmar II</li>
-                                <li>E11001 English II</li>
-                                <li>EM11001 Applied Mathematics II</li>
-                                <li>E.Ch11001Engineering Chemistry II</li>
-                                <li>E.Ph11001 Engineering Physics II</li>
-                                <li>ME11011 Basic Engineering Drawing II</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'second' && $index->course_year == 'fifth')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="column">
                     <div class="course_duration">
-                        <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                        <h4>BE final year</br>36 weeks</h4>
                         <div class="course_detail">
                             <h5>Semester I</h5>
                             <ul>
-                                <li>M11001 Myanmar I</li>
-                                <li>E11001 English I</li>
-                                <li>EM11001 Applied Mathematics I</li>
-                                <li>E.Ch11001Engineering Chemistry I</li>
-                                <li>E.Ph11001 Engineering Physics I</li>
-                                <li>ME11011 Basic Engineering Drawing I</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'first' && $index->course_year == 'final')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                             <h5>Semester II</h5>
                             <ul>
-                                <li>M11001 Myanmar II</li>
-                                <li>E11001 English II</li>
-                                <li>EM11001 Applied Mathematics II</li>
-                                <li>E.Ch11001Engineering Chemistry II</li>
-                                <li>E.Ph11001 Engineering Physics II</li>
-                                <li>ME11011 Basic Engineering Drawing II</li>
+                                @foreach($dep->courses as $index)
+                                    @if($index->course_type == 'second' && $index->course_year == 'final')
+                                        <li>{{$index->course_number.' '.$index->title}}</li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -303,12 +257,12 @@
                     <h5>{{ $index->staff_name }}</h5>
                     <p class="secondary"> Current Research: {{ $index->current_research }}</p>
                     <p class="secondary">Research Area: {{ $index->research_area }}</p>
-                    @if(strtolower()$index->title == 'head of departments')
+                    @if(strtolower($index->title) == 'head of departments')
                         <span class="hod_badge">HOD</span>
                     @endif
                 </div>
             </div>
-            @endforeach
+        @endforeach
     </div>
 @endsection @section('style')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/baugette.css') }}">
@@ -540,7 +494,7 @@
 
         {{-- courses --}}
 
-     /*staffs*/
+            /*staffs*/
 
         /*Staff info*/
 
